@@ -46,6 +46,7 @@ Kortix is the open-source AI Operating System: your agents, their skills, your c
 ## Starting this week, not next quarter
 
 [Using Cowork today](docs/using-cowork-today.md) runs the six-step checklist against a first week: inventory and export on days one and two, the install and the repository on days three and four, then one real job landed through a change request on day five. It ends with the file tree and the commit message that make up the record you are left holding.
+- [Migration guide: the order a move off Cowork runs in](docs/migration-guides.md)
 
 ## Reading on the same question
 
