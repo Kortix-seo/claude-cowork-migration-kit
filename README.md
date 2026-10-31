@@ -28,20 +28,27 @@ Teams on Pro, Max, Team or Enterprise that used Cowork for real work now have th
 In a repo-backed setup the agents are files, and one manifest at the root says which ones exist. This is the block from the starter project:
 
 ```yaml
+default_agent: worker
+
 agents:
-  kortix:
-    file: agents/kortix.md
+  worker:
+    description: "General-purpose worker: coding, research, writing, ops and data work, done end to end in its own sandbox."
+    mode: primary
+    permission: allow
+    prompt_file: agents/worker.md
+    tools: all
+    skills: all
     connectors: all
     secrets: all
     kortix_permissions: all
-    skills: all
+    workspace: { project_repository: true }
 ```
 
-Those seven lines are unedited from `packages/starter/templates/base/kortix.yaml` in [Kortix on GitHub](https://github.com/kortix-ai/suna), read on 20 October 2026. The manifest pins the schema with `kortix_version: 2` and names `default_agent: kortix`, so a session that names no agent still lands on a declared one. Behavior lives in the markdown file. The grants live here. That split is the whole reason a diff can answer "what was this agent allowed to do last month".
+Those lines are copied from `packages/starter/templates/base/kortix.yaml` in [Kortix on GitHub](https://github.com/kortix-ai/suna) at commit `76e1610`, read on 31 October 2026, with the comment lines removed. The manifest has no version line, because the format has no version, and `default_agent: worker` names the agent a session runs when it names none. Behavior lives in the markdown file, and a prompt file has no frontmatter. The grants live here. That split is the whole reason a diff can answer "what was this agent allowed to do last month".
 
 ## What Kortix is
 
-Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own, with the agents working on real cloud computers. More at [kortix.com](https://kortix.com).
+Kortix is the open-source CompanyOS. Your agents, their skills, your company memory and every connector sit in one git repo you own, and each session does its work on a cloud computer of its own. More at [kortix.com](https://kortix.com).
 
 ## Starting this week, not next quarter
 
